@@ -7,6 +7,8 @@ import 'package:project/lession/layout/column.dart';
 import 'package:project/lession/layout/grid.dart';
 import 'package:project/lession/layout/list_view.dart';
 import 'package:project/lession/layout/row.dart';
+import 'package:project/lession/layout/size_box.dart';
+import 'package:project/lession/layout/stack.dart';
 import 'package:project/lession/navbar.dart';
 import 'package:project/lession/layout/list_view.dart';
 
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Mygrid(),
+      home: Mysizebox(),
     );
   }
 }
