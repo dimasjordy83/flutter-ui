@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Testing extends StatelessWidget {
   @override
@@ -18,10 +19,17 @@ class Testing extends StatelessWidget {
                 child: Text('Discover the most modern furniture',
                     textAlign: TextAlign.left, style: TextStyle(fontSize: 25))),
             Container(
-              height: 50,
+              height: 40,
+              padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
               child: MyCategoryListView(),
             ),
-            // GridView di dalam Expanded agar dapat mengisi sisa ruang
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+                padding: EdgeInsets.fromLTRB(0, 10, 150, 10),
+                child: Text('Recommended furniture',
+                    textAlign: TextAlign.left, style: TextStyle(fontSize: 16))),
             Expanded(
               child: MyGridView(),
             ),
@@ -120,14 +128,22 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
       decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
         color: backgroundColor,
-        borderRadius: BorderRadius.circular(8.0),
       ),
-      child: Text(
-        category,
-        style: TextStyle(color: fontColor),
+      child: Center(
+        child: Text(
+          category,
+          style: GoogleFonts.poppins(
+            textStyle: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 12,
+              color: fontColor,
+            ),
+          ),
+        ),
       ),
     );
   }
