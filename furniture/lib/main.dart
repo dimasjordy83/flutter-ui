@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
             ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 25, 9, 113)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'HOME'),
+      home: const MyHomePage(title: 'Home'),
     );
   }
 }
@@ -42,21 +42,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.white,
           title: new Center(
-            child: new Text(widget.title, textAlign: TextAlign.center),
+            child: new Text(widget.title,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
           ),
           leading: IconButton(
             onPressed: () {},
@@ -68,20 +62,27 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: const Icon(Icons.search),
             ),
           ]),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+      body: Container(
+        child: Container(
+          // padding: const EdgeInsets.all(20),
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Column(
+                children: [
+                  Container(
+                      width: 250,
+                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                      child: Text('Discover the most modern furniture',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(fontSize: 25))),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
+
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
