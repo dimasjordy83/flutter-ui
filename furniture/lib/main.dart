@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Furniture',
       theme: ThemeData(
         colorScheme:
-            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 184, 12, 12)),
+            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 25, 9, 113)),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'HOME'),
@@ -82,10 +82,21 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.mail),
+            label: 'Messages',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
