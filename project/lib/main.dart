@@ -4,8 +4,10 @@ import 'package:project/lession/circleavatar.dart';
 import 'package:project/lession/container.dart';
 import 'package:project/lession/image.dart';
 import 'package:project/lession/layout/column.dart';
+import 'package:project/lession/layout/list_view.dart';
 import 'package:project/lession/layout/row.dart';
 import 'package:project/lession/navbar.dart';
+import 'package:project/lession/layout/list_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Myrow(),
+      home: Mylistview(),
     );
   }
 }
