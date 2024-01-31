@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:furniture/page/home.dart';
+import 'package:furniture/page/latihan/category.dart';
+import 'package:furniture/page/latihan/grid.dart';
+import 'package:furniture/page/latihan/grid2.dart';
+import 'package:furniture/page/latihan/test.dart';
+import 'package:furniture/page/profile.dart';
+import 'package:furniture/page2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -51,6 +58,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> page = [Home(), CategoryHome(), Testing()];
+
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.white,
@@ -69,33 +78,10 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: const Icon(Icons.search),
             ),
           ]),
-      body: Container(
-        child: Container(
-          // padding: const EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Container(
-                  width: 250,
-                  margin: EdgeInsets.fromLTRB(0, 0, 100, 25),
-                  decoration: BoxDecoration(color: Colors.red),
-                  padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
-                  child: Text('Discover the most modern furniture',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(fontSize: 25))),
-              Container(
-                width: 350,
-                height: 50,
-                margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 54, 67, 244)),
-                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-              ),
-            ],
-          ),
-        ),
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: page,
       ),
-
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
