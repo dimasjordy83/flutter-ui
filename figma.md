@@ -18,7 +18,7 @@ Daftar Isi:
    2. [Pembuatan Container Detail](#pembuatan-container-detail)
    3. [Pembuatan Nama Produk Harga Detail](#pembuatan-nama-produk-harga-detail)
    4. [Pembuatan Select Color Detail](#pembuatan-select-color-detail)
-   5. [Pembuatan Select Quantity Detail](#pembuatan-select-quantity-detail)
+   5. [Pem]buatan Select Quantity Detail](#pembuatan-select-quantity-detail)
    6. [Pembuatan Tombol Add to Cart Detail](#pembuatan-tombol-add-to-cart-detail)
 
 Figma adalah tool desain berupa website dan tersedia versi desktop yang terhubung dengan cloud sehingga bisa digunakan kapanpun dan dimanapun melalui internet. Tool ini berbasis vector, sehingga akan lebih cocok untuk mendesain UI website atau mobile dan aset ilustrasi. Aplikasi ini sangat cocok untuk kolaborasi pengembangan aplikasi dimana UI/UX designer membuat design di figma lalu developer akan menulis kode berdasarkan UI/UX final yang sudah disepakati bersama dan membuatnya sesuai roles yang ada di figma
