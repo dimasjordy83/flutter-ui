@@ -1,20 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
-
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  final List<String> categories = [
-    "All",
-    "Living Room",
-    "Bedroom",
-    "Dining Room",
-    "Kitchen"
-  ];
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,24 +19,17 @@ class _HomeState extends State<Home> {
                 child: Text('Discover the most modern furniture',
                     textAlign: TextAlign.left, style: TextStyle(fontSize: 25))),
             Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    height: 35,
-                    child: CustomListView(
-                      categories: categories,
-                      scrollDirection: Axis.horizontal,
-                    ),
-                  ),
-                ],
-              ),
+              height: 40,
+              padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+              child: MyCategoryListView(),
+            ),
+            SizedBox(
+              height: 10,
             ),
             Container(
-                padding: EdgeInsets.fromLTRB(0, 10, 80, 10),
+                padding: EdgeInsets.fromLTRB(0, 10, 150, 10),
                 child: Text('Recommended furniture',
                     textAlign: TextAlign.left, style: TextStyle(fontSize: 16))),
-            // GridView di dalam Expanded agar dapat mengisi sisa ruang
             Expanded(
               child: MyGridView(),
             ),
@@ -60,73 +40,51 @@ class _HomeState extends State<Home> {
   }
 }
 
-class CustomListView extends StatelessWidget {
-  const CustomListView({
-    super.key,
-    required this.categories,
-    required this.scrollDirection,
-  });
-  final List<String> categories;
-  final Axis scrollDirection;
+class MyCategoryListView extends StatefulWidget {
+  @override
+  _MyCategoryListViewState createState() => _MyCategoryListViewState();
+}
+
+class _MyCategoryListViewState extends State<MyCategoryListView> {
+  List<String> _category = [
+    "All",
+    "Living Room",
+    "Bedroom",
+    "Dining Room",
+    "Kitchen"
+  ];
+  int _selectedCategory = 0;
+
+  void _onTapCategory(int index) {
+    setState(() {
+      _selectedCategory = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    bool _select = false;
-
-    return ListView(
-      scrollDirection: scrollDirection,
-      children: List.generate(
-        categories.length,
-        (index) {
-          return GestureDetector(
-            onTap: () {
-              _select = !_select;
-            },
-            child: Container(
-              child: AnimatedContainer(
-                duration: const Duration(milliseconds: 150),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.grey,
-                ),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 24,
-                  vertical: 8,
-                ),
-                margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
-                child: Text(categories[index],
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 12,
-                      color: Color.fromARGB(255, 255, 255, 255),
-                      fontWeight: FontWeight.w500,
-                      letterSpacing: 1,
-                    )),
-              ),
-            ),
-            // child: AnimatedContainer(
-            //   duration: const Duration(milliseconds: 150),
-            //   decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(20),
-            //     color: Colors.grey,
-            //   ),
-            //   padding: const EdgeInsets.symmetric(
-            //     horizontal: 24,
-            //     vertical: 8,
-            //   ),
-            //   margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
-            //   child: Text(categories[index],
-            //       textAlign: TextAlign.center,
-            //       style: const TextStyle(
-            //         fontSize: 12,
-            //         color: Color.fromARGB(255, 255, 255, 255),
-            //         fontWeight: FontWeight.w500,
-            //         letterSpacing: 1,
-            //       )),
-            // ),
-          );
-        },
-      ),
+    return ListView.builder(
+      scrollDirection: Axis.horizontal,
+      itemCount: _category.length,
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.only(right: 17),
+          child: InkWell(
+            onTap: () => _onTapCategory(index),
+            child: _selectedCategory == index
+                ? CategoryItem(
+                    category: _category[index],
+                    backgroundColor: const Color(0xFF9A9390),
+                    fontColor: const Color(0xFFFFFFFF),
+                  )
+                : CategoryItem(
+                    category: _category[index],
+                    backgroundColor: Colors.transparent,
+                    fontColor: const Color(0xFF4A4543),
+                  ),
+          ),
+        );
+      },
     );
   }
 }
@@ -152,6 +110,41 @@ class MyGridView extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+}
+
+class CategoryItem extends StatelessWidget {
+  final String category;
+  final Color backgroundColor;
+  final Color fontColor;
+
+  const CategoryItem({
+    required this.category,
+    required this.backgroundColor,
+    required this.fontColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
+        color: backgroundColor,
+      ),
+      child: Center(
+        child: Text(
+          category,
+          style: GoogleFonts.poppins(
+            textStyle: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 12,
+              color: fontColor,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
