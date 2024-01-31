@@ -3,6 +3,7 @@ import 'package:project/lession/button.dart';
 import 'package:project/lession/circleavatar.dart';
 import 'package:project/lession/container.dart';
 import 'package:project/lession/form/dropdown.dart';
+import 'package:project/lession/form/radio.dart';
 import 'package:project/lession/form/textfield.dart';
 import 'package:project/lession/image.dart';
 import 'package:project/lession/layout/column.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Myswitch(),
+      home: Myradio(),
     );
   }
 }
