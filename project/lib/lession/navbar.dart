@@ -7,7 +7,7 @@ class Mynavbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Coding Flutter - Text"),
+        title: const Text("Navbar"),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/lession/container.dart';
 import 'package:project/lession/navbar.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Mynavbar(),
+      home: const Mycontainer(),
     );
   }
 }
