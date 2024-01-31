@@ -42,6 +42,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _selectedIndex = 0;
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,17 +73,23 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Container(
           // padding: const EdgeInsets.all(20),
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Column(
-                children: [
-                  Container(
-                      width: 250,
-                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                      child: Text('Discover the most modern furniture',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(fontSize: 25))),
-                ],
+              Container(
+                  width: 250,
+                  margin: EdgeInsets.fromLTRB(0, 0, 100, 25),
+                  decoration: BoxDecoration(color: Colors.red),
+                  padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                  child: Text('Discover the most modern furniture',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(fontSize: 25))),
+              Container(
+                width: 350,
+                height: 50,
+                margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 54, 67, 244)),
+                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
               ),
             ],
           ),
@@ -98,6 +111,9 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'Profile',
           ),
         ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
