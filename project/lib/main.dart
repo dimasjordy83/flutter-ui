@@ -26,6 +26,7 @@ import 'package:project/lession/navigator/bottom.dart';
 import 'package:project/lession/navigator/drawer.dart';
 import 'package:project/lession/navigator/pageone.dart';
 import 'package:project/lession/navigator/pop.dart';
+import 'package:project/lession/navigator/silverapp.dart';
 import 'package:project/lession/navigator/tabbar.dart';
 
 void main() {
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Mydrawer(),
+      home: Mysilver(),
     );
   }
 }
