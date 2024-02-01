@@ -13,8 +13,7 @@ class _MyhomeState extends State<Myhome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      child: MyTopBar(),
-    ));
+      body: Padding(padding: EdgeInsets.all(5), child: MyTopBar()),
+    );
   }
 }

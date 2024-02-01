@@ -72,7 +72,7 @@ class _MyTopBarState extends State<MyTopBar> {
           ),
         ),
         body: Padding(
-          padding: EdgeInsets.all(8),
+          padding: EdgeInsets.all(2),
           child: MyHeadline(),
         ));
   }
