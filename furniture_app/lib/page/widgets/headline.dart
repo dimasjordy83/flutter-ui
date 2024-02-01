@@ -24,12 +24,26 @@ class MyHeadline extends StatelessWidget {
                 ),
               )),
           SizedBox(
-            height: 5,
+            height: 20,
           ),
           Container(
             height: 30,
             width: 310,
             child: MyCategory(),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          SizedBox(
+            child: Text(
+              "Recommended Furnitures",
+              style: GoogleFonts.poppins(
+                  textStyle: const TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 16,
+                color: Color(0xFF4A4543),
+              )),
+            ),
           )
         ],
       ),
