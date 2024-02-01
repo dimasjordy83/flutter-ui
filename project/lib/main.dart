@@ -22,8 +22,10 @@ import 'package:project/lession/layout/wrap.dart';
 import 'package:project/lession/navbar.dart';
 import 'package:project/lession/layout/list_view.dart';
 import 'package:project/lession/form/switch.dart';
+import 'package:project/lession/navigator/bottom.dart';
 import 'package:project/lession/navigator/pageone.dart';
 import 'package:project/lession/navigator/pop.dart';
+import 'package:project/lession/navigator/tabbar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -41,7 +43,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Mypop(),
+      home: Mybottomnavigator(),
     );
   }
 }
