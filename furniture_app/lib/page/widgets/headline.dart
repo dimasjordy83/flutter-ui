@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/page/widgets/category.dart';
+import 'package:furniture_app/page/widgets/recomended.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MyHeadline extends StatelessWidget {
@@ -44,7 +45,14 @@ class MyHeadline extends StatelessWidget {
                 color: Color(0xFF4A4543),
               )),
             ),
-          )
+          ),
+          SizedBox(height: 10),
+          SingleChildScrollView(
+              child: Container(
+            height: 433.035,
+            color: Colors.amber,
+            child: Myrecomended(),
+          )),
         ],
       ),
     );

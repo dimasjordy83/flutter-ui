@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furniture_app/page/widgets/bottomnavigator.dart';
 import 'package:furniture_app/page/widgets/headline.dart';
 import 'package:furniture_app/page/widgets/topbar.dart';
 
@@ -14,6 +15,7 @@ class _MyhomeState extends State<Myhome> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(padding: EdgeInsets.all(5), child: MyTopBar()),
+      bottomNavigationBar: MyBottomNav(),
     );
   }
 }
