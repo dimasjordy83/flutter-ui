@@ -20,7 +20,7 @@ class _MytabbarState extends State<Mytabbar> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Coding Flutter - TabBar"),
+        title: const Text("TabBar"),
         bottom: TabBar(
           controller: _tabController,
           tabs: const [
