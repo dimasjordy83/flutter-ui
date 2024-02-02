@@ -15,6 +15,9 @@ class BiodataProfile extends StatelessWidget {
             children: [
               Row(
                 children: [
+                  SizedBox(
+                    width: 5,
+                  ),
                   Stack(
                     children: [
                       Container(
@@ -36,6 +39,8 @@ class BiodataProfile extends StatelessWidget {
                           color: const Color.fromARGB(255, 93, 68, 68),
                           borderRadius: BorderRadius.all(Radius.circular(100)),
                         ),
+                        child:
+                            Image.asset("assets/images/instagram/profile.png"),
                       ),
                     ],
                   ),

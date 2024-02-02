@@ -8,7 +8,7 @@ class AppbarProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 88,
-      width: 376,
+      width: 366,
       // color: Colors.amber,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
@@ -18,7 +18,7 @@ class AppbarProfile extends StatelessWidget {
             child: Row(
               children: [
                 Container(
-                  width: 330,
+                  width: 310,
                   height: 50,
                   // color: Colors.red,
                   child: Row(
@@ -65,7 +65,7 @@ class AppbarProfile extends StatelessWidget {
                   height: 18,
                   // color: Colors.blue,
                   child: SvgPicture.asset("assets/icons/instagram/drawer.svg"),
-                )
+                ),
               ],
             ),
           )

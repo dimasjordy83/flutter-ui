@@ -13,6 +13,9 @@ class Stories extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
+          SizedBox(
+            width: 12,
+          ),
           Column(
             children: [
               Stack(
@@ -73,6 +76,7 @@ class Stories extends StatelessWidget {
                       color: const Color.fromARGB(255, 93, 68, 68),
                       borderRadius: BorderRadius.all(Radius.circular(100)),
                     ),
+                    child: Image.asset("assets/images/instagram/friends.png"),
                   ),
                 ],
               ),
@@ -110,6 +114,7 @@ class Stories extends StatelessWidget {
                       color: const Color.fromARGB(255, 93, 68, 68),
                       borderRadius: BorderRadius.all(Radius.circular(100)),
                     ),
+                    child: Image.asset("assets/images/instagram/sport.png"),
                   ),
                 ],
               ),
@@ -147,6 +152,7 @@ class Stories extends StatelessWidget {
                       color: const Color.fromARGB(255, 93, 68, 68),
                       borderRadius: BorderRadius.all(Radius.circular(100)),
                     ),
+                    child: Image.asset("assets/images/instagram/desain.png"),
                   ),
                 ],
               ),
