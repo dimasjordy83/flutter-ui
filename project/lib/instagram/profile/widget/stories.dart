@@ -9,7 +9,7 @@ class Stories extends StatelessWidget {
     return Container(
       height: 86,
       width: 343,
-      color: Colors.amber,
+      // color: Colors.amber,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
