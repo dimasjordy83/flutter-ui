@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/instagram/profile/profile.dart';
 import 'package:project/lession/button.dart';
 import 'package:project/lession/circleavatar.dart';
 import 'package:project/lession/container.dart';
@@ -39,13 +40,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      // title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: Mysilver(),
+      // theme: ThemeData(
+      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      //   useMaterial3: true,
+      // ),
+      home: MyProfile(),
     );
   }
 }
