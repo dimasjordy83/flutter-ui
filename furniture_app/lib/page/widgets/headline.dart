@@ -50,7 +50,7 @@ class MyHeadline extends StatelessWidget {
           SingleChildScrollView(
               child: Container(
             height: 433.035,
-            color: Colors.amber,
+            // color: Colors.amber,
             child: Myrecomended(),
           )),
         ],
