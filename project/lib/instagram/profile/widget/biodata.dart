@@ -71,7 +71,7 @@ class BiodataProfile extends StatelessWidget {
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                               Text(
-                                "Post",
+                                "Followers",
                                 style: TextStyle(fontSize: 13),
                               )
                             ],
@@ -86,7 +86,7 @@ class BiodataProfile extends StatelessWidget {
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                               Text(
-                                "Post",
+                                "Following",
                                 style: TextStyle(fontSize: 13),
                               )
                             ],

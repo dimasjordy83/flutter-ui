@@ -3,6 +3,7 @@ import 'package:project/instagram/profile/widget/appbar.dart';
 import 'package:project/instagram/profile/widget/biodata.dart';
 import 'package:project/instagram/profile/widget/edit_profile.dart';
 import 'package:project/instagram/profile/widget/name.dart';
+import 'package:project/instagram/profile/widget/stories.dart';
 
 class MyProfile extends StatefulWidget {
   const MyProfile({super.key});
@@ -31,7 +32,11 @@ class _MyProfileState extends State<MyProfile> {
                   padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
                   child: EditeProfile(),
                 ),
-              )
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              Stories()
             ],
           )),
     );
