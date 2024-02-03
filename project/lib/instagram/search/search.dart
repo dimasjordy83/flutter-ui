@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project/instagram/search/widget/bottom_nav.dart';
 import 'package:project/instagram/search/widget/list_search.dart';
+import 'package:project/instagram/search/widget/grid_search.dart';
+import 'package:project/instagram/search/widget/grid2.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Search extends StatefulWidget {
@@ -38,7 +40,7 @@ class _SearchState extends State<Search> {
                     Expanded(
                         child: Container(
                       // color: Colors.amber,
-                      margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      margin: EdgeInsets.fromLTRB(0, 8, 0, 0),
                       padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
                       child: TextField(
                         controller: _searchController,
@@ -49,11 +51,9 @@ class _SearchState extends State<Search> {
                         ),
                         style: TextStyle(fontSize: 16),
                         onChanged: (value) {
-                          // Handle search query changes
                           print("Search query: $value");
                         },
                         onEditingComplete: () {
-                          // Handle editing completion (e.g., Enter key pressed)
                           print("Editing complete");
                         },
                       ),
@@ -71,14 +71,20 @@ class _SearchState extends State<Search> {
           )
         ],
       ),
-      body: Column(children: [
+      body: SingleChildScrollView(
+          child: Column(children: [
         Container(
           width: MediaQuery.of(context).size.width,
           height: 32,
           margin: EdgeInsets.fromLTRB(6, 0, 0, 0),
           child: ListSearch(),
+        ),
+        Container(
+          height: 742,
+          color: Colors.red,
+          child: PhotoGrid(),
         )
-      ]),
+      ])),
       bottomNavigationBar: BottomSearch(),
     );
   }
