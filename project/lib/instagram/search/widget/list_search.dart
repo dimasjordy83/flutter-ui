@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ListSearch extends StatefulWidget {
-  const ListSearch({super.key});
+  const ListSearch({Key? key}) : super(key: key);
 
   @override
   State<ListSearch> createState() => _ListSearchState();
@@ -34,18 +35,19 @@ class _ListSearchState extends State<ListSearch> {
         return Padding(
           padding: const EdgeInsets.only(right: 7),
           child: InkWell(
-              onTap: () => _onTapCategory(index),
-              child: _selectedCategory == index
-                  ? CategoryItem(
-                      category: _category[index],
-                      backgroundColor: Color.fromARGB(89, 154, 147, 144),
-                      fontColor: const Color(0xFFFFFFFF),
-                    )
-                  : CategoryItem(
-                      category: _category[index],
-                      backgroundColor: Colors.transparent,
-                      fontColor: const Color(0xFF262626),
-                    )),
+            onTap: () => _onTapCategory(index),
+            child: _selectedCategory == index
+                ? CategoryItem(
+                    category: _category[index],
+                    backgroundColor: Colors.transparent,
+                    fontColor: Color.fromARGB(255, 208, 55, 55),
+                  )
+                : CategoryItem(
+                    category: _category[index],
+                    backgroundColor: Colors.transparent,
+                    fontColor: const Color(0xFF262626),
+                  ),
+          ),
         );
       },
     );
@@ -54,11 +56,11 @@ class _ListSearchState extends State<ListSearch> {
 
 class CategoryItem extends StatelessWidget {
   const CategoryItem({
-    super.key,
+    Key? key,
     required this.category,
     required this.backgroundColor,
     required this.fontColor,
-  });
+  }) : super(key: key);
 
   final String category;
   final Color backgroundColor;
@@ -73,16 +75,45 @@ class CategoryItem extends StatelessWidget {
         border: Border.all(color: Color.fromARGB(18, 60, 60, 67), width: 1),
         color: backgroundColor,
       ),
-      child: Center(
-        child: Text(
-          category,
-          style: TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 12,
-            color: fontColor,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          _getIcon(category),
+          SizedBox(width: 8.0), // Spacing between icon and text
+          Text(
+            category,
+            style: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 12,
+              color: fontColor,
+            ),
           ),
-        ),
+        ],
       ),
     );
+  }
+
+  Widget _getIcon(String category) {
+    // Replace the paths with your actual icon paths
+    String? iconPath;
+    switch (category.toLowerCase()) {
+      case 'igtv':
+        iconPath = 'assets/icons/instagram/ig_tv.svg';
+        break;
+      case 'shop':
+        iconPath = 'assets/icons/instagram/shop.svg';
+        break;
+    }
+
+    if (iconPath != null) {
+      return SvgPicture.asset(
+        iconPath,
+        color: fontColor,
+        width: 20.0,
+        height: 20.0,
+      );
+    } else {
+      return SizedBox(); // Return an empty container if there's no icon
+    }
   }
 }

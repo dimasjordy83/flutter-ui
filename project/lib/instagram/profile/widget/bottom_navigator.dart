@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:project/instagram/profile/profile.dart';
+import 'package:project/instagram/search/search.dart';
 
 class BottomNav extends StatefulWidget {
   const BottomNav({super.key});
@@ -9,69 +11,99 @@ class BottomNav extends StatefulWidget {
 }
 
 class _BottomNavState extends State<BottomNav> {
-  List<Map<String, dynamic>> menuItems = [
-    {
-      "title": "Home",
-      "icon": "assets/icons/instagram/home.svg",
-    },
-    {
-      "title": "Search",
-      "icon": "assets/icons/instagram/search.svg",
-    },
-    {
-      "title": "Add",
-      "icon": "assets/icons/instagram/add_nav.svg",
-    },
-    {
-      "title": "Notifikasi",
-      "icon": "assets/icons/instagram/love.svg",
-    },
-    {
-      "title": "person",
-      "icon": "assets/icons/instagram/circle.svg",
-    },
-  ];
+  int _currentIndex = 4;
 
-  int _selectedItem = 0;
+  List<List<String>> _svgPaths = [
+    [
+      "assets/icons/instagram/home.svg",
+      "assets/icons/instagram/home_selected.svg",
+    ],
+    [
+      "assets/icons/instagram/search.svg",
+      "assets/icons/instagram/search_selected.svg",
+    ],
+    [
+      "assets/icons/instagram/add_nav.svg",
+      "assets/icons/instagram/add_selected.svg",
+    ],
+    [
+      "assets/icons/instagram/love.svg",
+      "assets/icons/instagram/love_selected.svg",
+    ],
+    [
+      "assets/images/instagram/tumb_avatar.png",
+      "assets/images/instagram/tumb_avatar_selected.png",
+    ],
+  ];
 
   void _onItemTapped(int index) {
     setState(() {
-      _selectedItem = index;
+      _currentIndex = index;
     });
+
+    switch (_currentIndex) {
+      case 0:
+        Navigator.pushReplacementNamed(context, '/profile');
+        break;
+        break;
+      case 1:
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => Search()),
+        );
+      case 2:
+        Navigator.pushReplacementNamed(context, '/profile');
+        break;
+      case 3:
+        Navigator.pushReplacementNamed(context, '/profile');
+        break;
+      case 4:
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => MyProfile()),
+        );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      backgroundColor: Colors.white,
-      showUnselectedLabels: false,
-      showSelectedLabels: false,
-      unselectedItemColor: Color(0xFF262626),
-      elevation: 32,
-      type: BottomNavigationBarType.fixed,
-      items: menuItems
-          .map(
-            (item) => BottomNavigationBarItem(
-              icon: SvgPicture.asset(item["icon"]),
-              label: item["title"],
-              // activeIcon: Container(
-              //   padding: const EdgeInsets.all(10),
-              //   decoration: const BoxDecoration(
-              //     color: Colors.grey,
-              //     borderRadius: BorderRadius.all(Radius.circular(14)),
-              //   ),
-              //   child: SvgPicture.asset(
-              //     item["icon"],
-              //     colorFilter:
-              //         const ColorFilter.mode(Colors.white, BlendMode.srcIn),
-              //   ),
-              // ),
-            ),
-          )
-          .toList(),
-      currentIndex: _selectedItem,
-      selectedItemColor: Colors.white,
+      currentIndex: _currentIndex,
       onTap: _onItemTapped,
+      items: [
+        BottomNavigationBarItem(
+          icon: SvgPicture.asset(
+            _svgPaths[0][_currentIndex == 0 ? 1 : 0],
+          ),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: SvgPicture.asset(
+            _svgPaths[1][_currentIndex == 1 ? 1 : 0],
+          ),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: SvgPicture.asset(
+            _svgPaths[2][_currentIndex == 2 ? 1 : 0],
+          ),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: SvgPicture.asset(
+            _svgPaths[3][_currentIndex == 3 ? 1 : 0],
+          ),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: CircleAvatar(
+            radius: 15,
+            backgroundImage: AssetImage(_svgPaths[4][0]),
+            // backgroundImage: AssetImage(_svgPaths[4][_currentIndex == 4 ? 1 : 0]),
+          ),
+          label: '',
+        ),
+      ],
     );
   }
 }

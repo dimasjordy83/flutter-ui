@@ -3,24 +3,30 @@ import 'package:project/instagram/search/widget/bottom_nav.dart';
 import 'package:project/instagram/search/widget/list_search.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Search extends StatelessWidget {
+class Search extends StatefulWidget {
   const Search({super.key});
 
+  @override
+  State<Search> createState() => _SearchState();
+}
+
+class _SearchState extends State<Search> {
+  final TextEditingController _searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                height: 36,
-                width: 306,
-                decoration: BoxDecoration(
-                    color: Color.fromARGB(12, 118, 118, 128),
-                    borderRadius: BorderRadius.circular(10)),
+          Expanded(
+            child: Container(
+              height: 36,
+              decoration: BoxDecoration(
+                color: Color.fromARGB(12, 118, 118, 128),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Center(
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
                       margin: EdgeInsets.fromLTRB(11.25, 11.25, 10.75, 11.25),
@@ -29,20 +35,39 @@ class Search extends StatelessWidget {
                       child:
                           SvgPicture.asset("assets/icons/instagram/search.svg"),
                     ),
-                    Text(
-                      "Search",
-                      style: TextStyle(fontSize: 16),
-                    )
+                    Expanded(
+                        child: Container(
+                      // color: Colors.amber,
+                      margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      child: TextField(
+                        controller: _searchController,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "Search",
+                          hintStyle: TextStyle(fontSize: 16),
+                        ),
+                        style: TextStyle(fontSize: 16),
+                        onChanged: (value) {
+                          // Handle search query changes
+                          print("Search query: $value");
+                        },
+                        onEditingComplete: () {
+                          // Handle editing completion (e.g., Enter key pressed)
+                          print("Editing complete");
+                        },
+                      ),
+                    )),
                   ],
                 ),
               ),
-              Container(
-                height: 20,
-                width: 20,
-                margin: EdgeInsets.all(8),
-                color: const Color.fromARGB(255, 90, 86, 72),
-              )
-            ],
+            ),
+          ),
+          Container(
+            height: 20,
+            width: 20,
+            margin: EdgeInsets.all(8),
+            color: const Color.fromARGB(255, 90, 86, 72),
           )
         ],
       ),
