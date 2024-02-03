@@ -69,7 +69,7 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 6),
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         border: Border.all(color: Color.fromARGB(18, 60, 60, 67), width: 1),
@@ -79,7 +79,7 @@ class CategoryItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           _getIcon(category),
-          SizedBox(width: 8.0), // Spacing between icon and text
+          SizedBox(width: 6),
           Text(
             category,
             style: TextStyle(

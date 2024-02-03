@@ -63,6 +63,7 @@ flutter:
   assets:
     - assets/images/
     - assets/images/instagram/
+    - assets/images/instagram/search/
     - assets/icons/instagram/
 
   #   - images/a_dot_ham.jpeg

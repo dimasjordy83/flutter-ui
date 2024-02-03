@@ -67,7 +67,8 @@ class _SearchState extends State<Search> {
             height: 20,
             width: 20,
             margin: EdgeInsets.all(8),
-            color: const Color.fromARGB(255, 90, 86, 72),
+            // color: const Color.fromARGB(255, 90, 86, 72),
+            child: SvgPicture.asset("assets/icons/instagram/scane.svg"),
           )
         ],
       ),
@@ -81,7 +82,7 @@ class _SearchState extends State<Search> {
         ),
         Container(
           height: 742,
-          color: Colors.red,
+          // color: Colors.red,
           child: PhotoGrid(),
         )
       ])),

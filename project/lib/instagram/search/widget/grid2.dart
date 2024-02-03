@@ -17,34 +17,50 @@ class _PhotoGridState extends State<PhotoGrid> {
           width: MediaQuery.of(context).size.width,
           height: 250,
           margin: EdgeInsets.fromLTRB(0, 7, 0, 0),
-          color: Colors.amber,
+          // color: Colors.amber,
           child: Row(
             children: [
               Container(
                   height: 250,
                   width: 117.5,
-                  color: Colors.red,
+                  // color: Colors.red,
                   child: Padding(
                       padding: EdgeInsets.all(1),
                       child: Column(
                         children: [
                           Container(
                             height: 124,
-                            width: 117.5,
-                            color: const Color.fromARGB(255, 188, 167, 165),
+                            width: 117,
+                            padding: EdgeInsets.fromLTRB(1, 1, 0, 0.5),
+
+                            // color: const Color.fromARGB(255, 188, 167, 165),
+                            child: Image.asset(
+                              "assets/images/instagram/search/egg.png",
+                              fit: BoxFit.cover,
+                            ),
                           ),
                           Container(
                             height: 124,
-                            width: 117.5,
-                            color: Color.fromARGB(255, 12, 92, 32),
+                            width: 117,
+                            padding: EdgeInsets.fromLTRB(1, 0.5, 0, 0),
+
+                            // color: Color.fromARGB(255, 12, 92, 32),
+                            child: Image.asset(
+                              "assets/images/instagram/search/boy.png",
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ],
                       ))),
               Container(
                 height: 250,
-                width: 232,
-                padding: EdgeInsets.all(1),
-                color: Color.fromARGB(255, 0, 255, 123),
+                width: 232.6,
+                padding: EdgeInsets.fromLTRB(0, 1, 1, 1),
+                // color: Color.fromARGB(255, 0, 255, 123),
+                child: Image.asset(
+                  "assets/images/instagram/search/night.png",
+                  fit: BoxFit.cover,
+                ),
               ),
             ],
           ),
@@ -52,7 +68,7 @@ class _PhotoGridState extends State<PhotoGrid> {
         Container(
           width: MediaQuery.of(context).size.width,
           height: 234,
-          color: Colors.black,
+          // color: Colors.black,
           child: GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
@@ -70,17 +86,17 @@ class _PhotoGridState extends State<PhotoGrid> {
                     color: Colors.tealAccent,
                     child: Positioned(
                       child: Image.asset(
-                        'assets/images/instagram/post_$index.png',
+                        'assets/images/instagram/search/search_$index.png',
                         fit: BoxFit.cover,
                       ),
                     ),
                   ),
                   if (showIcon)
                     Positioned(
-                        top: 9,
-                        right: 5,
-                        child:
-                            SvgPicture.asset("assets/icons/instagram/cam.svg")),
+                        top: 8,
+                        right: 8,
+                        child: SvgPicture.asset(
+                            "assets/icons/instagram/gallery.svg")),
                 ],
               );
             },
@@ -90,19 +106,23 @@ class _PhotoGridState extends State<PhotoGrid> {
         Container(
           width: MediaQuery.of(context).size.width,
           height: 250,
-          color: Colors.amber,
+          // color: Colors.amber,
           child: Row(
             children: [
               Container(
                 height: 250,
                 width: 232,
                 padding: EdgeInsets.all(1),
-                color: Color.fromARGB(255, 0, 255, 123),
+                // color: Color.fromARGB(255, 0, 255, 123),
+                child: Image.asset(
+                  "assets/images/instagram/search/boy_friends.png",
+                  fit: BoxFit.cover,
+                ),
               ),
               Container(
                   height: 250,
                   width: 117.5,
-                  color: Colors.red,
+                  // color: Colors.red,
                   child: Padding(
                       padding: EdgeInsets.all(1),
                       child: Column(
@@ -110,12 +130,20 @@ class _PhotoGridState extends State<PhotoGrid> {
                           Container(
                             height: 124,
                             width: 117.5,
-                            color: const Color.fromARGB(255, 188, 167, 165),
+                            // color: const Color.fromARGB(255, 188, 167, 165),
+                            child: Image.asset(
+                              "assets/images/instagram/search/coding.png",
+                              fit: BoxFit.cover,
+                            ),
                           ),
                           Container(
                             height: 124,
                             width: 117.5,
-                            color: Color.fromARGB(255, 12, 92, 32),
+                            // color: Color.fromARGB(255, 12, 92, 32),
+                            child: Image.asset(
+                              "assets/images/instagram/search/sport.png",
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ],
                       ))),
